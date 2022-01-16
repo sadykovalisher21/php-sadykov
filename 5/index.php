@@ -45,7 +45,7 @@
     echo "<th> Редактировать </th>";
     if($_SESSION["rule"] == 2) echo "<th>Уничтожить</th>";
     echo "</tr>";
-    $result=mysqli_query($conn, "SELECT * FROM fridge");
+    $result=mysqli_query($conn, "SELECT * FROM bank");
     while ($row=mysqli_fetch_array($result)){
       echo "<tr>";
       echo "<td>" . $row["id"] . "</td>";
@@ -71,7 +71,7 @@
     echo "<th> Название </th> <th> % Годовых </th> <th> id Банка </th>";
     echo "<th> Редактировать </th>";
     if($_SESSION["rule"] == 2) echo "<th> Уничтожить </th></tr>";
-    $result=mysqli_query($conn, "SELECT * FROM service");
+    $result=mysqli_query($conn, "SELECT * FROM deposit");
     while ($row=mysqli_fetch_array($result)){
       echo "<tr>";
       echo "<td>" . $row["id"] . "</td>";
@@ -95,7 +95,7 @@
     echo "<th> Дата создания вклада </th> <th> id Программы депозита </th> <th> Стартовая сумма вклада </th>";
     echo "<th> Редактировать </th>";
     if($_SESSION["rule"] == 2) echo "<th> Уничтожить </th> </tr>";
-    $result=mysqli_query($conn, "SELECT * FROM request");
+    $result=mysqli_query($conn, "SELECT * FROM invest");
     while ($row=mysqli_fetch_array($result)){
       echo "<tr>";
       echo "<td>" . $row["id"] . "</td>";
