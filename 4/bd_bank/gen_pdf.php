@@ -38,7 +38,7 @@
       $proc = $fetch_deposit["proc"];
     }
    
-    $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP_BY id_deposit");
+    $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP BY id_deposit");
     if($fetch_invest = mysqli_fetch_array($query_deposit)) {
       $price_sum = $fetch_deposit["price_sum"];
     }
