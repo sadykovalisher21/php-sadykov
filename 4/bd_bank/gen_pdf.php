@@ -31,16 +31,15 @@
     $name_bank = $fetch_bank["name"];
     $country = $fetch_bank["country"];
     $type = $fetch_bank["type"];
-    $price = $fetch_bank["price"];
 
     $query_deposit = mysqli_query($conn, "SELECT * FROM deposit WHERE id_bank = '" . $id_bank . "'");
-    if($fetch_bank = mysqli_fetch_array($query_deposit)) {
+    if($fetch_deposit = mysqli_fetch_array($query_deposit)) {
       $name_deposit = $fetch_deposit["name"];
       $proc = $fetch_deposit["proc"];
     }
    
     $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest WHERE id_deposit = '" . $id_deposit . "'");
-    if($fetch_deposit = mysqli_fetch_array($query_deposit)) {
+    if($fetch_invest = mysqli_fetch_array($query_deposit)) {
       $price_sum = $fetch_deposit["price_sum"];
     }
 
