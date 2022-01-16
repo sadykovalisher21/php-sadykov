@@ -4,7 +4,7 @@
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
-  header("Content-Disposition: attachment; filename=gazin_6.xlsx");
+  header("Content-Disposition: attachment; filename=sadykov_3.xlsx");
 
   require "../../vendor/autoload.php";
 
@@ -18,11 +18,11 @@
   
   $sheet = $spreadsheet -> getActiveSheet();
 
-  $sheet -> setTitle("Заявки на ремонт");
+  $sheet -> setTitle("Вклады");
 
   $sheet -> SetCellValue("A1", "Заявки на ремонт");
-  $sheet -> mergeCells("A1:I1");
-  $sheet -> getStyle("A1:I1") -> getAlignment() -> setHorizontal("center");
+  $sheet -> mergeCells("A1:G1");
+  $sheet -> getStyle("A1:G1") -> getAlignment() -> setHorizontal("center");
 
   $sheet -> getColumnDimension("A") -> setWidth(5);
   $sheet -> getColumnDimension("B") -> setWidth(15);
@@ -35,47 +35,40 @@
   $sheet -> getColumnDimension("I") -> setWidth(18);
 
   $sheet -> SetCellValue("A2", "№");
-  $sheet -> SetCellValue("B2", "Марка");
-  $sheet -> SetCellValue("C2", "Модель");
-  $sheet -> SetCellValue("D2", "Срок гарантии, г.");
-  $sheet -> SetCellValue("E2", "Адрес");
-  $sheet -> SetCellValue("F2", "Дата начала");
-  $sheet -> SetCellValue("G2", "Дата окончания");
-  $sheet -> SetCellValue("H2", "ФИО");
-  $sheet -> SetCellValue("I2", "Стоимость, руб.");
+  $sheet -> SetCellValue("B2", "Наименование банка");
+  $sheet -> SetCellValue("C2", "Страна");
+  $sheet -> SetCellValue("D2", "Класс надежности");
+  $sheet -> SetCellValue("E2", "Название программы");
+  $sheet -> SetCellValue("F2", "% Годовых");
+  $sheet -> SetCellValue("G2", "Сумма всех вкладов такого типа, руб.");
 
-  $query = mysqli_query($conn, "SELECT * FROM request");
-  for($i = 1; $fetch_request = mysqli_fetch_array($query); $i++) {
-    $date_in = $fetch_request["date_in"];
-    $date_out = $fetch_request["date_out"];
-    $id_fridge = $fetch_request["id_fridge"];
-    $id_service = $fetch_request["id_service"];
-    $fio = iconv("windows-1251", "utf-8", $fetch_request["fio"]);
-    $price = $fetch_request["price"];
+  $query = mysqli_query($conn, "SELECT * FROM deposit");
+  for($i = 1; $fetch_deposit = mysqli_fetch_array($query); $i++) {
+    $id_deposit = $fetch_deposit["id"];
+    $name_deposit = $fetch_deposit["name"];
+    $id_bank = $fetch_deposit["id_bank"];
+    $proc = $fetch_deposit["proc"];
 
-    $query_fridge = mysqli_query($conn, "SELECT * FROM fridge WHERE id = '" . $id_fridge . "'");
-    if($fetch_fridge = mysqli_fetch_array($query_fridge)) {
-      $name_fridge = $fetch_fridge["name"];
-      $model = $fetch_fridge["model"];
-      $type = $fetch_fridge["type"];
-      $time = $fetch_fridge["time"];
+    $query_bank = mysqli_query($conn, "SELECT * FROM bank WHERE id = '" . $id_bank . "'");
+    if($fetch_bank = mysqli_fetch_array($query_bank)) {
+      $name_bank = $fetch_bank["name"];
+      $country = $fetch_bank["country"];
+      $type = $fetch_bank["type"];
     }
    
-    $query_service = mysqli_query($conn, "SELECT * FROM service WHERE id = '" . $id_service . "'");
-    if($fetch_service = mysqli_fetch_array($query_service)) {
-      $name_service = $fetch_service["name"];
-      $address = iconv("windows-1251", "utf-8", $fetch_service["address"]);
+    $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest WHERE id_deposit='".$id_deposit."' GROUP BY id_deposit");
+    if($fetch_invest = mysqli_fetch_array($query_invest)) {
+      $price_sum = $fetch_invest["price_sum"];
     }
 
     $sheet -> SetCellValue("A".($i+2), $i);
-    $sheet -> SetCellValue("B".($i+2), $name_fridge);
-    $sheet -> SetCellValue("C".($i+2), $model);
-    $sheet -> SetCellValue("D".($i+2), $time);
-    $sheet -> SetCellValue("E".($i+2), $address);
-    $sheet -> SetCellValue("F".($i+2), date("d.m.Y", strtotime($date_in)));
-    $sheet -> SetCellValue("G".($i+2), date("d.m.Y", strtotime($date_out)));
-    $sheet -> SetCellValue("H".($i+2), $fio);
-    $sheet -> SetCellValue("I".($i+2), $price);
+    $sheet -> SetCellValue("B".($i+2), $name_bank);
+    $sheet -> SetCellValue("C".($i+2), $country);
+    $sheet -> SetCellValue("D".($i+2), $type);
+    $sheet -> SetCellValue("E".($i+2), $name_deposit);
+    $sheet -> SetCellValue("F".($i+2), $proc);
+    $sheet -> SetCellValue("G".($i+2), $price_sum);
+
   }
 
   $writer = new Xlsx($spreadsheet);
