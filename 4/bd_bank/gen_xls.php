@@ -25,14 +25,12 @@
   $sheet -> getStyle("A1:G1") -> getAlignment() -> setHorizontal("center");
 
   $sheet -> getColumnDimension("A") -> setWidth(5);
-  $sheet -> getColumnDimension("B") -> setWidth(15);
-  $sheet -> getColumnDimension("C") -> setWidth(15);
-  $sheet -> getColumnDimension("D") -> setWidth(18);
-  $sheet -> getColumnDimension("E") -> setWidth(30);
+  $sheet -> getColumnDimension("B") -> setWidth(25);
+  $sheet -> getColumnDimension("C") -> setWidth(20);
+  $sheet -> getColumnDimension("D") -> setWidth(20);
+  $sheet -> getColumnDimension("E") -> setWidth(25);
   $sheet -> getColumnDimension("F") -> setWidth(15);
-  $sheet -> getColumnDimension("G") -> setWidth(15);
-  $sheet -> getColumnDimension("H") -> setWidth(50);
-  $sheet -> getColumnDimension("I") -> setWidth(18);
+  $sheet -> getColumnDimension("G") -> setWidth(30);
 
   $sheet -> SetCellValue("A2", "№");
   $sheet -> SetCellValue("B2", "Наименование банка");
