@@ -31,7 +31,7 @@
     $name_deposit = $fetch_deposit["name"];
     $proc = $fetch_deposit["proc"];
 
-    $query_bank = mysqli_query($conn, "SELECT * FROM bank WHERE id_bank = '" . $id_bank . "'");
+    $query_bank = mysqli_query($conn, "SELECT * FROM bank WHERE id = '" . $id_bank . "'");
     if($fetch_bank = mysqli_fetch_array($query_bank)) {
       $name_bank = $fetch_bank["name"];
       $country = $fetch_bank["country"];
