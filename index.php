@@ -1,7 +1,7 @@
 <?php header('Content-Type: text/html; charset=windows-1251'); ?>
 
 <body>
-<h1> Фамилия И. О. </h1>
+<h1> Садыков А. А. </h1>
 <p> Дата и время:
 
 <?php
