@@ -30,7 +30,7 @@
   $sheet -> getColumnDimension("D") -> setWidth(20);
   $sheet -> getColumnDimension("E") -> setWidth(25);
   $sheet -> getColumnDimension("F") -> setWidth(15);
-  $sheet -> getColumnDimension("G") -> setWidth(30);
+  $sheet -> getColumnDimension("G") -> setWidth(40);
 
   $sheet -> SetCellValue("A2", "№");
   $sheet -> SetCellValue("B2", "Наименование банка");
