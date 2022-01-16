@@ -25,17 +25,17 @@
 
   $pdf -> SetFont("Arial", "", "6");
 
-  $query = mysqli_query($conn, "SELECT * FROM bank");
-  for($i = 1; $fetch_bank = mysqli_fetch_array($query); $i++) {
-    $id_bank = $fetch_bank["id"];
-    $name_bank = $fetch_bank["name"];
-    $country = $fetch_bank["country"];
-    $type = $fetch_bank["type"];
+  $query = mysqli_query($conn, "SELECT * FROM deposit");
+  for($i = 1; $fetch_deposit = mysqli_fetch_array($query); $i++) {
+    $id_bank = $fetch_deposit["id_bank"];
+    $name_deposit = $fetch_deposit["name"];
+    $proc = $fetch_deposit["proc"];
 
-    $query_deposit = mysqli_query($conn, "SELECT * FROM deposit WHERE id_bank = '" . $id_bank . "'");
-    if($fetch_deposit = mysqli_fetch_array($query_deposit)) {
-      $name_deposit = $fetch_deposit["name"];
-      $proc = $fetch_deposit["proc"];
+    $query_bank = mysqli_query($conn, "SELECT * FROM bank WHERE id_bank = '" . $id_bank . "'");
+    if($fetch_bank = mysqli_fetch_array($query_bank)) {
+      $name_bank = $fetch_bank["name"];
+      $country = $fetch_bank["country"];
+      $type = $fetch_bank["type"];
     }
    
     $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP BY id_deposit");
