@@ -27,8 +27,9 @@
 
   $query = mysqli_query($conn, "SELECT * FROM deposit");
   for($i = 1; $fetch_deposit = mysqli_fetch_array($query); $i++) {
-    $id_bank = $fetch_deposit["id_bank"];
+    $id_deposit = $fetch_deposit["id"];
     $name_deposit = $fetch_deposit["name"];
+    $id_bank = $fetch_deposit["id_bank"];
     $proc = $fetch_deposit["proc"];
 
     $query_bank = mysqli_query($conn, "SELECT * FROM bank WHERE id = '" . $id_bank . "'");
@@ -38,7 +39,7 @@
       $type = $fetch_bank["type"];
     }
    
-    $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP BY id_deposit");
+    $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP BY id_deposit WHERE id_deposit='".$id_deposit."'");
     if($fetch_invest = mysqli_fetch_array($query_invest)) {
       $price_sum = $fetch_invest["price_sum"];
     }
