@@ -1,6 +1,6 @@
 <?php
   $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","bfb0d61ccbcfdd","76448f94", "heroku_f9c5d8662f884a1") or die ("Невозможно подключиться к серверу");
-  mysqli_query($conn, "SET NAMES cp1251");
+  mysqli_query($conn, "SET NAMES utf8");
 
   define('FPDF_FONTPATH',"../../fpdf/font/");
   require("../../fpdf/fpdf.php");
