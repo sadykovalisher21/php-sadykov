@@ -98,12 +98,8 @@
     $result=mysqli_query($conn, "SELECT * FROM invest");
     while ($row=mysqli_fetch_array($result)){
       echo "<tr>";
-      echo "<td>" . $row["id"] . "</td>";
-      echo "<td>" . date("d.m.Y", strtotime($row["date_in"])) . "</td>";
-      echo "<td>" . date("d.m.Y", strtotime($row["date_out"])) . "</td>";
-      echo "<td>" . $row["id_fridge"] . "</td>";
-      echo "<td>" . $row["id_service"] . "</td>";
-      echo "<td>" . $row["fio"] . "</td>";
+      echo "<td>" . date("d.m.Y", strtotime($row["date"])) . "</td>";
+      echo "<td>" . $row["id_deposit"] . "</td>";
       echo "<td>" . $row["price"] . "</td>";
       echo "<td><a href='edit_invest.php?id=" . $row["id"]
       . "'>Редактировать</a></td>";
