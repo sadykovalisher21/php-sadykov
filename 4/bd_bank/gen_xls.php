@@ -55,10 +55,8 @@
     }
    
     $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest WHERE id_deposit='".$id_deposit."' GROUP BY id_deposit");
-    if($fetch_invest = mysqli_fetch_array($query_invest)) {
-      $price_sum = $fetch_invest["price_sum"];
-      if(!$price_sum) $price_sum = 0;
-    }
+    if($fetch_invest = mysqli_fetch_array($query_invest)) $price_sum = $fetch_invest["price_sum"];
+    else $price_sum = 0;
 
     $sheet -> SetCellValue("A".($i+2), $i);
     $sheet -> SetCellValue("B".($i+2), $name_bank);
