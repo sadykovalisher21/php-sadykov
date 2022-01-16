@@ -11,17 +11,17 @@
   $pdf -> AddFont("Arial", "", "arial.php");
   $pdf -> SetFont("Arial", "", "18");
 
-  $pdf -> Cell(125, 10, "Вклады", 1, 1, "C");
+  $pdf -> Cell(175, 10, "Вклады", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "8");
 
   $pdf -> Cell(5, 5, "№", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Наименование банка", 1, 0, "C");
-  $pdf -> Cell(15, 5, "Страна", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Класс надежности", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Название программы", 1, 0, "C");
-  $pdf -> Cell(15, 5, "% Годовых", 1, 0, "C");
-  $pdf -> Cell(30, 5, "Сумма всех вкладов такого типа", 1, 1, "C");
+  $pdf -> Cell(30, 5, "Наименование банка", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Страна", 1, 0, "C");
+  $pdf -> Cell(30, 5, "Класс надежности", 1, 0, "C");
+  $pdf -> Cell(30, 5, "Название программы", 1, 0, "C");
+  $pdf -> Cell(20, 5, "% Годовых", 1, 0, "C");
+  $pdf -> Cell(40, 5, "Сумма всех вкладов такого типа", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "6");
 
@@ -45,12 +45,12 @@
     }
 
     $pdf -> Cell(5, 5, $i, 1, 0, "C");
-    $pdf -> Cell(20, 5, $name_bank, 1, 0, "C");
-    $pdf -> Cell(15, 5, $country, 1, 0, "C");
-    $pdf -> Cell(20, 5, $type, 1, 0, "C");
-    $pdf -> Cell(20, 5, $name_deposit, 1, 0, "C");
-    $pdf -> Cell(15, 5, $proc, 1, 0, "C");
-    $pdf -> Cell(30, 5, $price_sum, 1, 1, "C");
+    $pdf -> Cell(30, 5, $name_bank, 1, 0, "C");
+    $pdf -> Cell(20, 5, $country, 1, 0, "C");
+    $pdf -> Cell(30, 5, $type, 1, 0, "C");
+    $pdf -> Cell(30, 5, $name_deposit, 1, 0, "C");
+    $pdf -> Cell(20, 5, $proc, 1, 0, "C");
+    $pdf -> Cell(40, 5, $price_sum, 1, 1, "C");
 }
 
 $pdf -> Output("sadykov_3.pdf", "D");
