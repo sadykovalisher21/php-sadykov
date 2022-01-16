@@ -53,5 +53,5 @@
     $pdf -> Cell(30, 5, $price_sum, 1, 1, "C");
 }
 
-$pdf -> Output("gazin_6.pdf", "D");
+$pdf -> Output("sadykov_3.pdf", "D");
 ?>
