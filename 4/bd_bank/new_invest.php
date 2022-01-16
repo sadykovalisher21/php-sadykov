@@ -8,7 +8,7 @@
  mysqli_query($conn, "SET NAMES cp1251");
 ?>
 <H2>Добавление новой записи:</H2>
-<form action="save_new_request.php" metod="get">
+<form action="save_new_invest.php" metod="get">
 <br>Дата создания вклада: <input name="date" size="20" type="date">
 
 <br>id Программы депозита: <select name="id_deposit">
