@@ -40,7 +40,7 @@
    
     $query_invest = mysqli_query($conn, "SELECT SUM(price) AS price_sum FROM invest GROUP BY id_deposit");
     if($fetch_invest = mysqli_fetch_array($query_deposit)) {
-      $price_sum = $fetch_deposit["price_sum"];
+      $price_sum = $fetch_invest["price_sum"];
     }
 
     $pdf -> Cell(5, 5, $i, 1, 0, "C");
