@@ -98,6 +98,7 @@
     $result=mysqli_query($conn, "SELECT * FROM invest");
     while ($row=mysqli_fetch_array($result)){
       echo "<tr>";
+      echo "<td>" . $row["id"] . "</td>";
       echo "<td>" . date("d.m.Y", strtotime($row["date"])) . "</td>";
       echo "<td>" . $row["id_deposit"] . "</td>";
       echo "<td>" . $row["price"] . "</td>";
