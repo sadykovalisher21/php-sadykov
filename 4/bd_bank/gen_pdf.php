@@ -1,6 +1,6 @@
 <?php
-  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","bfb0d61ccbcfdd","76448f94", "heroku_f9c5d8662f884a1") or die ("ÐÐµÐ²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÑŒÑÑ Ðº ÑÐµÑ€Ð²ÐµÑ€Ñƒ");
-  mysqli_query($conn, "SET NAMES utf8");
+  $conn = mysqli_connect("eu-cdbr-west-02.cleardb.net","bfb0d61ccbcfdd","76448f94", "heroku_f9c5d8662f884a1") or die ("Íåâîçìîæíî ïîäêëþ÷èòüñÿ ê ñåðâåðó");
+  mysqli_query($conn, "SET NAMES cp1251");
 
   define('FPDF_FONTPATH',"../../fpdf/font/");
   require("../../fpdf/fpdf.php");
@@ -11,17 +11,17 @@
   $pdf -> AddFont("Arial", "", "arial.php");
   $pdf -> SetFont("Arial", "", "18");
 
-  $pdf -> Cell(195, 10, "Ð’ÐºÐ»Ð°Ð´Ñ‹", 1, 1, "C");
+  $pdf -> Cell(195, 10, "Âêëàäû", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "8");
 
-  $pdf -> Cell(5, 5, "â„–", 1, 0, "C");
-  $pdf -> Cell(30, 5, "ÐÐ°Ð¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð±Ð°Ð½ÐºÐ°", 1, 0, "C");
-  $pdf -> Cell(20, 5, "Ð¡Ñ‚Ñ€Ð°Ð½Ð°", 1, 0, "C");
-  $pdf -> Cell(30, 5, "ÐšÐ»Ð°ÑÑ Ð½Ð°Ð´ÐµÐ¶Ð½Ð¾ÑÑ‚Ð¸", 1, 0, "C");
-  $pdf -> Cell(35, 5, "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹", 1, 0, "C");
-  $pdf -> Cell(25, 5, "% Ð“Ð¾Ð´Ð¾Ð²Ñ‹Ñ…", 1, 0, "C");
-  $pdf -> Cell(50, 5, "Ð¡ÑƒÐ¼Ð¼Ð° Ð²ÑÐµÑ… Ð²ÐºÐ»Ð°Ð´Ð¾Ð² Ñ‚Ð°ÐºÐ¾Ð³Ð¾ Ñ‚Ð¸Ð¿Ð°", 1, 1, "C");
+  $pdf -> Cell(5, 5, "¹", 1, 0, "C");
+  $pdf -> Cell(30, 5, "Íàèìåíîâàíèå áàíêà", 1, 0, "C");
+  $pdf -> Cell(20, 5, "Ñòðàíà", 1, 0, "C");
+  $pdf -> Cell(30, 5, "Êëàññ íàäåæíîñòè", 1, 0, "C");
+  $pdf -> Cell(35, 5, "Íàçâàíèå ïðîãðàììû", 1, 0, "C");
+  $pdf -> Cell(25, 5, "% Ãîäîâûõ", 1, 0, "C");
+  $pdf -> Cell(50, 5, "Ñóììà âñåõ âêëàäîâ òàêîãî òèïà", 1, 1, "C");
 
   $pdf -> SetFont("Arial", "", "6");
 
