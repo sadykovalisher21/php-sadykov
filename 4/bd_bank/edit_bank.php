@@ -17,7 +17,7 @@
  $type = $st['type'];
  $volume = $st['volume'];
  }
-print "<form action='save_edit_fridge.php' metod='get'>";
+print "<form action='save_edit_bank.php' metod='get'>";
 print "Наименование: <input name='name' size='20' type='text'
 value='".$name."'>";
 print "<br>ИНН: <input name='inn' size='20' type='text'

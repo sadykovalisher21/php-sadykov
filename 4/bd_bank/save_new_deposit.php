@@ -6,7 +6,7 @@
  mysqli_query($conn, 'SET NAMES cp1251'); // Тип кодировки
  // Строка запроса на добавление записи в таблицу:
  $sql_add = "INSERT INTO deposit SET name='" . $_GET['name']
-."', proc='".$_GET['proc'] . "' id_bank='".$_GET['id_bank']."'";
+."', proc='".$_GET['proc'] . "' id_bank=".$_GET['id_bank'];
  mysqli_query($conn, $sql_add); // Выполнение запроса
  if (mysqli_affected_rows($conn)>0) // если нет ошибок при выполнении запроса
  { print "<p>Запись сохранена.";
