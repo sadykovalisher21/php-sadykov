@@ -9,7 +9,7 @@
 <br>Логин: <input name="login" size="20" type="text">
 <br>Пароль: <input name="password" size="20" type="password">
 <br>Е-mail: <input name="e_mail" size="30" type="text">
-<br>Информация: <textarea name="info" rows="4" cols="40">
+<br>Информация:<br><textarea name="info" rows="4" cols="40">
 </textarea>
 <p><input name="add" type="submit" value="Добавить">
 <input name="b2" type="reset" value="Очистить"></p>
