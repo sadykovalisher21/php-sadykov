@@ -75,6 +75,5 @@
   $writer -> save("php://output");
 
   exit();
-}
   
 ?>
