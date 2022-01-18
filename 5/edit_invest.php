@@ -23,8 +23,8 @@ print "<form action='save_edit_invest.php' metod='get'>";
 print "<br>Дата создания вклада: <input name='date' size='20' type='date'
 value='".$date."'>";
 
-print "<br>id Программы депозита: <select name='id_deposit'>";
-$result=mysqli_query($conn, "SELECT * FROM deposit");
+print "<br>Название депозита: <select name='id_deposit'>";
+$result=mysqli_query($conn, "SELECT * FROM deposit WHERE id=".$_GET['id']);
 foreach($result as $row) {
   if($id_deposit == $row["id_deposit"]) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
   else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
