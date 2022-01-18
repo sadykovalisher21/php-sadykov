@@ -24,9 +24,9 @@ value='".$name."'>";
 print "<br>% годовых: <input name='proc' size='20' type='text'
 value='".$proc."'>";
 
-print "<br>id Сервисного центра: <select name='id_bank'>";
+print "<br>Наименование банка: <select name='id_bank'>";
 $result=mysqli_query($conn, "SELECT * FROM bank");
-$bank_name=mysqli_query($conn, "SELECT * FROM bank WHERE id='".$id_bank."'");
+$bank_name=mysqli_query($conn, "SELECT * FROM bank WHERE id='".$id_bank."'")[0];
 echo "<option value='".$id_bank."' selected hidden>".$bank_name."</option>";
 foreach($result as $row)
   echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
