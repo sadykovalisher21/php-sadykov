@@ -25,9 +25,10 @@ value='".$date."'>";
 
 print "<br>id Программы депозита: <select name='id_deposit'>";
 $result=mysqli_query($conn, "SELECT * FROM deposit");
-echo "<option value='".$id_deposit."' selected hidden>".$id_deposit."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+foreach($result as $row) {
+  if($id_deposit == $row["id_deposit"]) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+}
 echo "</select>";
 
 print "<br>Стартовая сумма вклада, руб.: <input name='price' size='20' type='text'
