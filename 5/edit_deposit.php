@@ -28,8 +28,8 @@ value='".$proc."'>";
 print "<br>Наименование банка: <select name='id_bank'>";
 $result=mysqli_query($conn, "SELECT * FROM bank");
 foreach($result as $row) {
-  if($row["id"] == $id_bank) echo "<option value='".$row["id"]." selected'>".$row["name"]."</option>";
-  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  if($row["id"] == $id_bank) echo "<option value='".$row["name"]." selected'>".$row["id"]."</option>";
+  else echo "<option value='".$row["name"]."'>".$row["id"]."</option>";
   }
 echo "</select>";
 
