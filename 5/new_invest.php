@@ -19,10 +19,8 @@ if(!$_SESSION["rule"]) header("Location: .");
 <?php
 print "<br>Наименование депозита: <select name='id_deposit'>";
 $result=mysqli_query($conn, "SELECT * FROM deposit");
-foreach($result as $row) {
-  if($row["id"] == $id_deposit) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
-  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
-  }
+echo "<option value='' selected hidden>...</option>";
+foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
 echo "</select>";
 ?>
 

@@ -77,7 +77,7 @@
       echo "<td>" . $row["id"] . "</td>";
       echo "<td>" . $row["name"] . "</td>";
       echo "<td>" . $row["proc"] . "</td>";
-      echo "<td>" . $row["id_bank"] . "</td>";
+      echo "<td>" . mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM bank WHERE id='".$row["id_bank"]."'"))["name"] . "</td>";
       echo "<td><a href='edit_deposit.php?id=" . $row["id"]
       . "'>Редактировать</a></td>";
       if($_SESSION["rule"] == 2) echo "<td><a href='delete_deposit.php?id=" . $row["id"]
@@ -100,7 +100,7 @@
       echo "<tr>";
       echo "<td>" . $row["id"] . "</td>";
       echo "<td>" . date("d.m.Y", strtotime($row["date"])) . "</td>";
-      echo "<td>" . $row["id_deposit"] . "</td>";
+      echo "<td>" . mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM deposit WHERE id='".$row["id_deposit"]."'"))["name"] . "</td>";
       echo "<td>" . $row["price"] . "</td>";
       echo "<td><a href='edit_invest.php?id=" . $row["id"]
       . "'>Редактировать</a></td>";
