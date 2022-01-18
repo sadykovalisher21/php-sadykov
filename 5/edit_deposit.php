@@ -15,7 +15,6 @@ if(!$_SESSION["rule"]) header("Location: .");
  mysqli_query($conn, 'SET NAMES cp1251');
  $rows=mysqli_query($conn, "SELECT * FROM deposit WHERE id=".$_GET['id']);
  while ($st = mysqli_fetch_array($rows)) {
- $name=$st["name"];
  $proc = $st['proc'];
  $id_bank = $st['id_bank'];
  }
@@ -27,9 +26,10 @@ value='".$proc."'>";
 
 print "<br>id Сервисного центра: <select name='id_bank'>";
 $result=mysqli_query($conn, "SELECT * FROM bank");
-echo "<option value='".$id_bank."' selected hidden>".$id_bank."</option>";
+$bank_name=mysqli_query($conn, "SELECT * FROM bank WHERE id='".$id_bank."'");
+echo "<option value='".$id_bank."' selected hidden>".$bank_name."</option>";
 foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+  echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
 echo "</select>";
 
 print "<input type='hidden' name='id' value='".$_GET['id']."'>";
