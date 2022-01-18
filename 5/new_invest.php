@@ -17,7 +17,7 @@ if(!$_SESSION["rule"]) header("Location: .");
 <br>Дата создания вклада: <input name="date" size="20" type="date">
 
 <?php
-print "<br>Наименование депозита: <select name='id_deposit'>";
+print "<br>Название программы: <select name='id_deposit'>";
 $result=mysqli_query($conn, "SELECT * FROM deposit");
 echo "<option value='' selected hidden>...</option>";
 foreach($result as $row) echo "<option value='".$row["id"]."'>".$row["name"]."</option>";

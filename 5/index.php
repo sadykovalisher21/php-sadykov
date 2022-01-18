@@ -92,7 +92,7 @@
     echo "<h2>Вклады:</h2>";
     echo "<table border='1'>";
     echo "<tr><th> id </th>";
-    echo "<th> Дата создания вклада </th> <th> id Программы депозита </th> <th> Стартовая сумма вклада </th>";
+    echo "<th> Дата создания вклада </th> <th> id Название программы </th> <th> Стартовая сумма вклада </th>";
     echo "<th> Редактировать </th>";
     if($_SESSION["rule"] == 2) echo "<th> Уничтожить </th> </tr>";
     $result=mysqli_query($conn, "SELECT * FROM invest");
