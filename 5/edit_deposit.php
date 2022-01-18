@@ -26,10 +26,10 @@ value='".$proc."'>";
 
 print "<br>Наименование банка: <select name='id_bank'>";
 $result=mysqli_query($conn, "SELECT * FROM bank");
-$name=mysqli_query($conn, "SELECT * FROM bank WHERE id='".$id_bank."'")["name"];
-echo "<option value='".$id_bank."' selected hidden>".$name."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+foreach($result as $row) {
+  if($row["id"] == $id_bank) echo "<option value='".$row["id"]." selected'>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
 echo "</select>";
 
 print "<input type='hidden' name='id' value='".$_GET['id']."'>";
