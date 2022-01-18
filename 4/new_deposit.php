@@ -12,13 +12,14 @@
 <br>Название: <input name="name" size="20" type="text">
 <br>% годовых: <input name="proc" size="20" type="text">
 
-<br>id Банка: <select name="id_bank">
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM bank");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>Наименование банка: <select name='id_bank'>";
+$result=mysqli_query($conn, "SELECT * FROM bank");
+foreach($result as $row) {
+  if($row["id"] == $id_bank) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
+echo "</select>";
 ?>
 
 <p><input name="add" type="submit" value="Добавить">

@@ -11,13 +11,14 @@
 <form action="save_new_invest.php" metod="get">
 <br>Дата создания вклада: <input name="date" size="20" type="date">
 
-<br>id Программы депозита: <select name="id_deposit">
 <?php
-  $result=mysqli_query($conn, "SELECT * FROM deposit");
-  echo "<option value='' selected disabled hidden>...</option>";
-  foreach($result as $row)
-    echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
-  echo "</select>";
+print "<br>Наименование депозита: <select name='id_deposit'>";
+$result=mysqli_query($conn, "SELECT * FROM deposit");
+foreach($result as $row) {
+  if($row["id"] == $id_deposit) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
+echo "</select>";
 ?>
 
 <br>Стартовая сумма вклада, руб.: <input name="price" size="20" type="text">

@@ -18,11 +18,12 @@ print "<form action='save_edit_invest.php' metod='get'>";
 print "<br>Дата создания вклада: <input name='date' size='20' type='date'
 value='".$date."'>";
 
-print "<br>id Программы депозита: <select name='id_deposit'>";
+print "<br>Наименование депозита: <select name='id_deposit'>";
 $result=mysqli_query($conn, "SELECT * FROM deposit");
-echo "<option value='".$id_deposit."' selected hidden>".$id_deposit."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+foreach($result as $row) {
+  if($row["id"] == $id_deposit) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
 echo "</select>";
 
 print "<br>Стартовая сумма вклада, руб.: <input name='price' size='20' type='text'

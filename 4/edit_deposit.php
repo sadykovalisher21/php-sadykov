@@ -20,11 +20,12 @@ value='".$name."'>";
 print "<br>% годовых: <input name='proc' size='20' type='text'
 value='".$proc."'>";
 
-print "<br>id Сервисного центра: <select name='id_bank'>";
+print "<br>Наименование банка: <select name='id_bank'>";
 $result=mysqli_query($conn, "SELECT * FROM bank");
-echo "<option value='".$id_bank."' selected hidden>".$id_bank."</option>";
-foreach($result as $row)
-  echo "<option value='".$row["id"]."'>".$row["id"]."</option>";
+foreach($result as $row) {
+  if($row["id"] == $id_bank) echo "<option value='".$row["id"]."' selected>".$row["name"]."</option>";
+  else echo "<option value='".$row["id"]."'>".$row["name"]."</option>";
+  }
 echo "</select>";
 
 print "<input type='hidden' name='id' value='".$_GET['id']."'>";

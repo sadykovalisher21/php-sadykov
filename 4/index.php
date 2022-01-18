@@ -39,7 +39,7 @@ print("<P>Всего записей: $num_rows </p>");
 <table border="1">
 <tr>
  <th> id </th>
- <th> Название </th> <th> % годовых </th> <th> id Банка </th>
+ <th> Название </th> <th> % годовых </th> <th> Наименование банка </th>
  <th> Редактировать </th> <th> Уничтожить </th> </tr>
 <?php
 $result=mysqli_query($conn, "SELECT * FROM deposit"); // запрос на выборку сведений о пользователях
@@ -48,7 +48,7 @@ while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
  echo "<td>" . $row["id"] . "</td>";
  echo "<td>" . $row["name"] . "</td>";
  echo "<td>" . $row["proc"] . "</td>";
- echo "<td>" . $row["id_bank"] . "</td>";
+ echo "<td>" . mysqli_query($conn, "SELECT * FROM bank WHERE id='".$row["id_bank"]."'")[0]["name"] . "</td>";
  echo "<td><a href='edit_deposit.php?id=" . $row["id"]
 . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
  echo "<td><a href='delete_deposit.php?id=" . $row["id"]
@@ -65,7 +65,7 @@ print("<P>Всего записей: $num_rows </p>");
 <table border="1">
 <tr>
  <th> id </th>
- <th> Дата создания </th> <th> id Программы депозита </th> <th> Стартовая сумма вклада, руб. </th>
+ <th> Дата создания </th> <th> Наименование депозита </th> <th> Стартовая сумма вклада, руб. </th>
  <th> Редактировать </th> <th> Уничтожить </th> </tr>
 <?php
 $result=mysqli_query($conn, "SELECT * FROM invest"); // запрос на выборку сведений о пользователях
@@ -73,7 +73,7 @@ while ($row=mysqli_fetch_array($result)){// для каждой строки из запроса
  echo "<tr>";
  echo "<td>" . $row["id"] . "</td>";
  echo "<td>" . date("d.m.Y", strtotime($row["date"])) . "</td>";
- echo "<td>" . $row["id_deposit"] . "</td>";
+ echo "<td>" . mysqli_query($conn, "SELECT * FROM deposit WHERE id='".$row["id_deposit"]."'")[0]["name"] . "</td>";
  echo "<td>" . $row["price"] . "</td>";;
  echo "<td><a href='edit_invest.php?id=" . $row["id"]
 . "'>Редактировать</a></td>"; // запуск скрипта для редактирования
