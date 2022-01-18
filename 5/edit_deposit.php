@@ -15,6 +15,7 @@ if(!$_SESSION["rule"]) header("Location: .");
  mysqli_query($conn, 'SET NAMES cp1251');
  $rows=mysqli_query($conn, "SELECT * FROM deposit WHERE id=".$_GET['id']);
  while ($st = mysqli_fetch_array($rows)) {
+ $name = $st['name'];
  $proc = $st['proc'];
  $id_bank = $st['id_bank'];
  }
