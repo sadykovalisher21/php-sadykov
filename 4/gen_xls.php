@@ -6,7 +6,7 @@
   header("Content-type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
   header("Content-Disposition: attachment; filename=sadykov_3.xlsx");
 
-  require "../../vendor/autoload.php";
+  require "../vendor/autoload.php";
 
   use PhpOffice\PhpSpreadsheet\Spreadsheet;
   use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
